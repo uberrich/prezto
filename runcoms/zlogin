@@ -21,3 +21,9 @@ if (( $+commands[fortune] )); then
     print
   fi
 fi
+
+# Stop annoying Ctrl-S behaviour (turn flow control off)
+
+if (( $+commands[stty] )); then
+  stty -ixon
+fi
