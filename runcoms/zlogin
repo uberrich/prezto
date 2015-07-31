@@ -14,9 +14,14 @@
   fi
 } &!
 
-# Print a random, hopefully interesting, adage.
+# Print a random, hopefully interesting, adage, and the hostname.
 if (( $+commands[fortune] )); then
   if [[ -t 0 || -t 1 ]]; then
+    print
+    if (( $+commands[figlet] )); then
+      figlet -ct $(hostname) 
+      print
+    fi
     fortune -as
     print
   fi
